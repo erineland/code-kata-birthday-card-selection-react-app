@@ -5,7 +5,8 @@ import { mount } from 'enzyme';
 import { JestEnvironment } from '@jest/environment';
 
 describe('Card Grid', () => {
-    const getCardsMock = jest.fn(() => Promise.resolve(['card1', 'card2']));
+    const mockCards = ['card1', 'card2'];
+    const getCardsMock = jest.fn(() => Promise.resolve(mockCards));
     const axiosInstanceMock = {
         getCards: getCardsMock
     }
@@ -22,7 +23,7 @@ describe('Card Grid', () => {
     describe('When loading the component', () => {
         it('renders the app as expected', () => {
             const component = renderer.create(
-                <CardGrid axiosInstance={axiosInstanceMock}/>,
+                <CardGrid axiosInstance={axiosInstanceMock} />,
             );
             let tree = component.toJSON();
             expect(tree).toMatchSnapshot();
@@ -37,14 +38,29 @@ describe('Card Grid', () => {
         });
 
         it('makes a call to get the list of cards to render', () => {
-            const getCardsMock = jest.fn(() => Promise.resolve(['card1', 'card2']));
-            const axiosInstanceMock = {
-                getCards: getCardsMock
-            }
-            const component = render({ axiosInstance: axiosInstanceMock });
+            const component = render();
             expect(
                 getCardsMock
             ).toHaveBeenCalled();
+        });
+
+        describe('When making the call to the cards service', () => {
+            describe('When the call to the cards service succeeds', async () => {
+                it('Successfully saves the list of cards onto the state', () => {
+                    const component = render();
+                    process.nextTick(() => {
+                        expect(component.state().cards).toEqual(mockCards);
+                    });
+                })
+            });
+
+            describe('When the call to the cards service fails', async () => {
+                // const getCardsMock = jest.fn(() => Promise.resolve(['card1', 'card2']));
+                // const axiosInstanceMock = {
+                //     getCards: getCardsMock
+                // }
+                // const component = render({ axiosInstance: axiosInstanceMock });
+            });
         });
     });
 });

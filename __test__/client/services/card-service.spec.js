@@ -6,7 +6,7 @@ describe('Card Service', () => {
         data: ['card1', 'card2']
     }
     const mockAxiosGet = jest.fn(() => Promise.resolve(mockCards));
-    const mockAxios = {
+    let mockAxios = {
         get: mockAxiosGet,
     };
 
@@ -51,6 +51,25 @@ describe('Card Service', () => {
 
         describe('When the network call to the cards endpoint succeeds', () => {
 
+            // Setup the mock axios to return a network error
+            beforeEach(() => {
+                const mockAxiosGetFailure = jest.fn(() => Promise.reject(new Error('get cards failed')));
+                mockAxios = {
+                    get: mockAxiosGetFailure,
+                };
+                newCardService = new CardService(mockAxios);
+            });
+
+            it('Catches the error and returns a meaningful error to the caller', async () => {
+                try {
+                    const cardsToRender = await newCardService.getCards();
+                    expect(cardsToRender).toEqual(null);
+                } catch (cardServiceError) {
+                    expect(cardServiceError.message).toEqual(
+                        'CardService.getCards Error: get cards failed'
+                    );
+                }
+            });
         });
     });
 })

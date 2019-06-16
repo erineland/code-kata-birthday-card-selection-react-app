@@ -14,6 +14,11 @@ export default class CardService {
                     //TODO: cache this somehow?
                     return response && response.data;
                 }
+            })
+            .catch(error => {
+                const getCardsError = new Error(`CardService.getCards Error: ${error.message}`);
+                console.error(getCardsError.message);
+                throw getCardsError;
             });
     }
 }

@@ -11,7 +11,6 @@ describe('Card Service', () => {
     };
 
     beforeEach(() => {
-
         newCardService = new CardService(mockAxios);
     });
 
@@ -40,7 +39,14 @@ describe('Card Service', () => {
         });
 
         describe('When the network call to the cards endpoint fails', () => {
-
+            it('Returns the list of cards to the caller', async () => {
+                const cardsToRender = await newCardService.getCards();
+                expect(
+                    cardsToRender
+                ).toEqual(
+                    mockCards.data
+                );
+            });
         })
 
         describe('When the network call to the cards endpoint succeeds', () => {

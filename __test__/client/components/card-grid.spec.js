@@ -5,20 +5,28 @@ import { mount } from 'enzyme';
 import { JestEnvironment } from '@jest/environment';
 
 describe('Card Grid', () => {
-    const mockCards = ['card1', 'card2'];
-    const getCardsMock = jest.fn(() => Promise.resolve(mockCards));
-    const axiosInstanceMock = {
+    let component;
+    let mockCards = ['card1', 'card2'];
+    let getCardsMock = jest.fn(() => Promise.resolve(mockCards));
+    let axiosInstanceMock = {
         getCards: getCardsMock
     }
+
     const render = customProps => {
         const props = {
-            // any default props for testing purposes go here.
             axiosInstance: axiosInstanceMock,
-            // Now override with any passed custom props for test purposes.
             ...customProps
         }
         return mount(<CardGrid {...props} />);
     }
+
+    beforeEach(() => {
+        component = render();
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    })
 
     describe('When loading the component', () => {
         it('renders the app as expected', () => {
@@ -30,36 +38,41 @@ describe('Card Grid', () => {
         });
 
         it('renders a grid to house all of the available cards', () => {
-            const component = render();
-
             expect(
                 component.find('[data-testid="card-grid"]')
             ).toBeTruthy()
         });
 
         it('makes a call to get the list of cards to render', () => {
-            const component = render();
             expect(
                 getCardsMock
             ).toHaveBeenCalled();
         });
 
         describe('When making the call to the cards service', () => {
-            describe('When the call to the cards service succeeds', async () => {
-                it('Successfully saves the list of cards onto the state', () => {
-                    const component = render();
+            describe('When the call to the cards service succeeds',() => {
+                it('Successfully saves the list of cards onto the state', async () => {
                     process.nextTick(() => {
                         expect(component.state().cards).toEqual(mockCards);
                     });
                 })
             });
 
-            describe('When the call to the cards service fails', async () => {
-                // const getCardsMock = jest.fn(() => Promise.resolve(['card1', 'card2']));
-                // const axiosInstanceMock = {
-                //     getCards: getCardsMock
-                // }
-                // const component = render({ axiosInstance: axiosInstanceMock });
+            describe('When the call to the cards service fails', () => {
+                let axiosInstanceErrorMock;
+                beforeEach(() => {
+                    const getCardsErrorMock = jest.fn(() => Promise.reject(new Error('get cards error')));
+                    axiosInstanceErrorMock = {
+                        getCards: getCardsErrorMock
+                    }
+                });
+
+                it('Handles the error and sets some error state', async () => {
+                    const component = render({ axiosInstance: axiosInstanceErrorMock });
+                    process.nextTick(() => {
+                        expect(component.state().errors).toBe(1);
+                    });
+                });
             });
         });
     });

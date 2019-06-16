@@ -7,18 +7,19 @@ class CardGrid extends Component {
     super(props);
     this.state = {
       cards: [],
+      errors: [],
     }
   }
 
   componentDidMount() {
-    // Upon mounting, make an asynchronous call for the cards
     this.props.axiosInstance.getCards().then(cards => {
-      // Assign the cards to the state!
       this.setState({
         cards: cards,
       });
     }).catch(error => {
-      // TODO: Register an error state and display an error message
+      this.setState({
+        errors: this.state.errors.push(error),
+      })
     });
   }
 

@@ -4,12 +4,6 @@ exports[`App renders the app as expected 1`] = `
 <h1
   data-testid="app-title"
 >
-  Hello World
-</h1>
-`;
-
-exports[`Link changes the class when hovered 1`] = `
-<h1>
-  Hello World
+  Hello Moonpig!
 </h1>
 `;

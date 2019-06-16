@@ -20,7 +20,7 @@ describe('App', () => {
         const renderedApp = render();
         expect(
             renderedApp.find('[data-testid="app-title"]').text(),
-        ).toBe('Hello World');
+        ).toBe('Hello Moonpig!');
     });
 });
 

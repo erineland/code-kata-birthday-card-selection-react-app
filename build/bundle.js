@@ -14969,7 +14969,9 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, "Hello World");
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
+        "data-testid": "app-title"
+      }, "Hello World");
     }
   }]);
 

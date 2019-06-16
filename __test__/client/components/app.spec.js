@@ -2,35 +2,52 @@ import React from 'react';
 import App from '../../../src/client/components/app';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import path from 'path';
+import fs from 'fs';
+
+const pathName = path.resolve(__dirname, `../../__mocks__/validCardResults.json`);
+const mockCards = JSON.parse(fs.readFileSync(pathName, 'utf8'));
 
 describe('App', () => {
+    let component;
+    let getCardsMock = jest.fn(() => Promise.resolve({
+        Products: mockCards
+    }));
+    let cardServiceMock = {
+        getCards: getCardsMock
+    }
     const render = customProps => {
         const props = {
-            // Default props
+            cardService: cardServiceMock,
             ...customProps,
         }
-        return mount(<App {...props}/>);
+        return mount(<App {...props} />);
     }
+
+    beforeEach(() => {
+        component = render();
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    })
 
     it('renders the app as expected', () => {
         const component = renderer.create(
-            <App />,
+            <App cardService={cardServiceMock} />,
         );
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
 
     it('successfully renders the app', () => {
-        const renderedApp = render();
         expect(
-            renderedApp.find('[data-testid="app-title"]').text(),
-        ).toBe('Hello Moonpig!');
+            component.find('[data-testid="card-grid"]').exists(),
+        ).toBeTruthy();
     });
 
-    it('Assigns an object to the prop axiosInstance when passed', () => {
-        const axiosInstanceMock = jest.fn();
-        const renderedApp = render({ axiosInstance: axiosInstanceMock});
-        expect(renderedApp.props().axiosInstance).toEqual(axiosInstanceMock);
+    it('Assigns an object to the prop cardService when passed', () => {
+        expect(component.props().cardService).toEqual(cardServiceMock);
     });
 });
 

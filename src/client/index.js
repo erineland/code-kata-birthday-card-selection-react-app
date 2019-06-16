@@ -5,10 +5,15 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 import styles from './scss/application.scss';
 import axios from 'axios';
+import CardService from '../client/services/card-service';
 
-const axiosInstance = axios;
+const axiosInstance = axios.create({
+  baseURL: 'https://search.moonpig.com',
+});
+
+const cardService = new CardService(axiosInstance);
 
 render(
-  <App axiosInstance={axiosInstance} />,
+  <App cardService={cardService} />,
   document.getElementById('root')
 );

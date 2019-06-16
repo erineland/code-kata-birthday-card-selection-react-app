@@ -2,20 +2,31 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import CardGrid from '../components/card-grid.jsx'
+// const HelloWorld = () => <h1 data-testid="app-title">Hello Moonpig!</h1>;
 
-const HelloWorld = () => <h1 data-testid="app-title">Hello Moonpig!</h1>;
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-const App = () => {
-  return (
-    <Router>
-      <Route exact path="/" component={HelloWorld} />
-      <Button>Hello React Bootstrap!</Button>
-    </Router>
-  )
+  render() {
+    return (
+      <Router>
+        <Route
+          exact path="/"
+          render={() => {
+            return <CardGrid cardService={this.props.cardService} />
+          }}
+        />
+        <Button>Hello React Bootstrap!</Button>
+      </Router>
+    )
+  }
 }
 
 App.propTypes = {
-  axiosInstance: PropTypes.func,
+  cardService: PropTypes.object,
 }
 
 export default App;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import CardGrid from '../components/card-grid.jsx'
 // const HelloWorld = () => <h1 data-testid="app-title">Hello Moonpig!</h1>;
@@ -19,7 +18,6 @@ class App extends Component {
             return <CardGrid cardService={this.props.cardService} />
           }}
         />
-        <Button>Hello React Bootstrap!</Button>
       </Router>
     )
   }

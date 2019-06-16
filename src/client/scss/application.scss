@@ -21,20 +21,20 @@ body {
   }
 
   .card-grid__card-item {
-    // Set flex-item properties here, different for each device breakpoint
-    @include mq($until: tablet) {
-        width: 100%;
-    }
+    padding: 24px;
+    background: transparent;
+    border: none;
 
-    @include mq($until: desktop) {
+    // Set flex-item properties here, different for each device breakpoint
+    @include mq(mobile, tablet) {
         width: 50%;
     }
 
-    @include mq($until: wide) {
+    @include mq(tablet, desktop) {
         width: 33%;
     }
 
-    @include mq($from: wide) {
+    @include mq($from: desktop) {
         width: 25%;
     }
   }

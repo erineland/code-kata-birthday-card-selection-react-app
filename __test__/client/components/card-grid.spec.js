@@ -1,5 +1,5 @@
 import React from 'react';
-import CardGrid from '../../src/client/components/card-grid';
+import CardGrid from '../../../src/client/components/card-grid';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 

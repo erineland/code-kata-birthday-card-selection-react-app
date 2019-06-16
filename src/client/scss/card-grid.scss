@@ -1,0 +1,22 @@
+@import "mq";
+.card-grid__container {
+  // from mobile to tablet - 1 column
+  @include mq($until: tablet) {
+    grid-template-columns: 1fr;
+  }
+
+  // from tablet to desktop - 2 columns
+  @include mq($until: desktop) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  // from desktop to wide - 3 columns
+  @include mq($until: wide) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  // from wide upwards - 4 columns
+  @include mq($from: wide) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

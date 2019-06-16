@@ -13,13 +13,11 @@ class CardGrid extends Component {
 
   componentDidMount() {
     this.props.cardService.getCards().then(cards => {
-      debugger;
       console.info(`The response from the Moonpig cards API is: ${JSON.stringify(cards)}`);
       this.setState({
         cards: cards.Products,
       });
     }).catch(error => {
-      debugger;
       console.error(`cardGrid.componentDidMount Error: ${error.message}`);
       this.setState({
         errors: this.state.errors.push(error),
@@ -34,7 +32,7 @@ class CardGrid extends Component {
           this.state.cards.map((currentCard, index) => {
             console.log(`Attempting to render card: ${JSON.stringify(currentCard)}`);
             return (
-              <Card style={{ width: '18rem' }}>
+              <Card className="card-grid__card-item">
                 <Card.Img variant="top" src={currentCard.ProductImage.Link.Href} />
                 {/* <Card.Body>
                   <Card.Title>{currentCard.Title}</Card.Title>

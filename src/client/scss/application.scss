@@ -1,22 +1,41 @@
 $mq-breakpoints: (
-    mobile:  320px,
-    tablet:  740px,
-    desktop: 980px,
-    wide:    1300px
+  mobile: 320px,
+  tablet: 740px,
+  desktop: 980px,
+  wide: 1300px
 );
 
-@import 'mq';
+@import "mq";
 
 body {
-    background: #ACCEEC;
-    color: #005CC5;
-    text-align: center;
+  background: #f7f7f7; // TODO: Move colours into variable/theming files
+  color: #3e3e3e; // TODO: Same as above
+  text-align: center;
 
-    @include mq(mobile, tablet) {
-        background: red;
+  .card-grid__container {
+    display: flex;
+
+    @include mq($from: mobile) {
+        flex-wrap: wrap;
+    }
+  }
+
+  .card-grid__card-item {
+    // Set flex-item properties here, different for each device breakpoint
+    @include mq($until: tablet) {
+        width: 100%;
     }
 
-    @include mq(tablet, desktop) {
-        background: purple;
+    @include mq($until: desktop) {
+        width: 50%;
     }
+
+    @include mq($until: wide) {
+        width: 33%;
+    }
+
+    @include mq($from: wide) {
+        width: 25%;
+    }
+  }
 }

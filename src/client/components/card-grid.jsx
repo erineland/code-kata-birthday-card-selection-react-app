@@ -30,7 +30,6 @@ class CardGrid extends Component {
       <Container data-testid="card-grid" className="card-grid__container">
         {
           this.state.cards.map((currentCard, index) => {
-            console.log(`Attempting to render card: ${JSON.stringify(currentCard)}`);
             return (
               <Card className="card-grid__card-item">
                 <Card.Img variant="top" src={currentCard.ProductImage.Link.Href} />

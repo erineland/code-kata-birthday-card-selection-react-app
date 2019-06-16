@@ -2,7 +2,7 @@
 
 exports[`Card Grid renders the app as expected 1`] = `
 <div
-  className="card-grid__container"
+  className="card-grid__container container"
   data-testid="card-grid"
 />
 `;

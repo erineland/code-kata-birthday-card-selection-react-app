@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Container, Row, Col } from 'react-bootstrap';
 
 const CardGrid = () => {
     return (
-      <div data-testid="card-grid" className="card-grid__container">
-
-      </div>
+      <Container data-testid="card-grid" className="card-grid__container">
+      </Container>
     )
   }
 

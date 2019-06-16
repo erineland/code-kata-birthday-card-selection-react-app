@@ -6,5 +6,11 @@ describe('Card Service', () => {
             const newCardService = new CardService();
             expect(newCardService).toBeInstanceOf(CardService);
         });
+
+        it('Can take an instance of axios and assign this to a property', () => {
+            const mockAxios = jest.fn();
+            const newCardService = new CardService(mockAxios);
+            expect(newCardService.axios).toEqual(mockAxios);
+        });
     })
 })

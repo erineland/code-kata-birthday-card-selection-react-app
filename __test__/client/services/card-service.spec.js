@@ -38,5 +38,13 @@ describe('Card Service', () => {
                 '/api/products?size=20&fq=card_shop_id:1'
             )
         });
+
+        describe('When the network call to the cards endpoint fails', () => {
+
+        })
+
+        describe('When the network call to the cards endpoint succeeds', () => {
+
+        });
     });
 })

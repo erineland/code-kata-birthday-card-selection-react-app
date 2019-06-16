@@ -1,9 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App renders the app as expected 1`] = `
-<h1
-  data-testid="app-title"
->
-  Hello Moonpig!
-</h1>
+Array [
+  <h1
+    data-testid="app-title"
+  >
+    Hello Moonpig!
+  </h1>,
+  <button
+    className="btn btn-primary"
+    disabled={false}
+    type="button"
+  >
+    Hello React Bootstrap!
+  </button>,
+]
 `;

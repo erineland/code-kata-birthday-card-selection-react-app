@@ -10,7 +10,7 @@ class CardDetails extends Component {
     render() {
         return (
             <Container data-testid="card-details__container">
-
+                <h1>THIS IS MY CARD DETAILS COMPONENT</h1>
             </Container>
         )
     }

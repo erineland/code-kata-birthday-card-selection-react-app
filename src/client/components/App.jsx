@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PropTypes from 'prop-types';
-import CardGrid from '../components/card-grid.jsx'
-// const HelloWorld = () => <h1 data-testid="app-title">Hello Moonpig!</h1>;
+import CardGrid from '../components/card-grid.jsx';
+import CardDetails from '../components/card-details.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +16,12 @@ class App extends Component {
           exact path="/"
           render={() => {
             return <CardGrid cardService={this.props.cardService} />
+          }}
+        />
+        <Route
+          path="/card-details/"
+          render={() => {
+            return <CardDetails />
           }}
         />
       </Router>

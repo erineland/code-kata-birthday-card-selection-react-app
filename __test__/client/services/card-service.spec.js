@@ -2,13 +2,22 @@ import CardService from '../../../src/client/services/card-service';
 
 describe('Card Service', () => {
     let newCardService;
+    let mockAxiosGetCards;
+    let mockAxiosGetCardDetails;
     const mockCards = {
         data: ['card1', 'card2']
     }
-    const mockAxiosGet = jest.fn(() => Promise.resolve(mockCards));
+    const mockCardDetails = {
+        data: {
+            'title': 'test card title'
+        }
+    }
+    mockAxiosGetCards = jest.fn(() => Promise.resolve(mockCards));
+    mockAxiosGetCardDetails = jest.fn(() => Promise.resolve(mockCardDetails));
     let mockAxios = {
-        get: mockAxiosGet,
+        get: mockAxiosGetCards,
     };
+    const moonpigProductId = 'pu1162';
 
     beforeEach(() => {
         newCardService = new CardService(mockAxios);
@@ -38,7 +47,7 @@ describe('Card Service', () => {
             )
         });
 
-        describe('When the network call to the cards endpoint fails', () => {
+        describe('When the network call to the cards endpoint succeeds', () => {
             it('Returns the list of cards to the caller', async () => {
                 const cardsToRender = await newCardService.getCards();
                 expect(
@@ -49,7 +58,7 @@ describe('Card Service', () => {
             });
         })
 
-        describe('When the network call to the cards endpoint succeeds', () => {
+        describe('When the network call to the cards endpoint fails', () => {
 
             // Setup the mock axios to return a network error
             beforeEach(() => {
@@ -70,6 +79,25 @@ describe('Card Service', () => {
                     );
                 }
             });
+        });
+    });
+
+    describe('When the getCardDetails method is invoked', () => {
+        beforeEach(() => {
+            mockAxios = {
+                get: mockAxiosGetCardDetails,
+            }
+            newCardService = new CardService(mockAxios);
+        });
+        it('Makes a network call via axios to the get card details endpoint', async () => {
+            console.log(`moonpigProductId is: ${moonpigProductId}`);
+            const cardsToRender = await newCardService.getCardDetails(moonpigProductId);
+            expect(
+                mockAxios.get
+            ).toHaveBeenCalledWith({
+                    url: `uk/api/product/product/?mpn=${moonpigProductId}`,
+                    baseUrl: 'https://www.moonpig.com/'
+            })
         });
     });
 })

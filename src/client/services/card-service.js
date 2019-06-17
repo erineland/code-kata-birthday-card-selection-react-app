@@ -18,4 +18,22 @@ export default class CardService {
                 throw getCardsError;
             });
     }
+
+    getCardDetails(moonpigProductId) {
+        return this.axios.get({
+            url: `uk/api/product/product/?mpn=${moonpigProductId}`,
+            baseUrl: 'https://www.moonpig.com/'
+        })
+            .then(response => {
+                if (response.data) {
+                    return response && response.data;
+                }
+            })
+            .catch(error => {
+                const getCardDetailsError = new Error(`CardService.getCardDetails Error: ${error.message}`);
+                console.error(getCardDetailsError.message);
+                throw getCardDetailsError;
+            });
+
+    }
 }

@@ -7,7 +7,7 @@
   }
 
   .card-grid__card-item {
-    padding: 24px; // Will try to use units of 8px
+    padding: $spacing-unit * 3;
     background: transparent;
     border: none;
 

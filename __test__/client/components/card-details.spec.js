@@ -127,4 +127,13 @@ describe('Card Details', () => {
             component.find('[data-testid="card-details__title"]').text()
         ).toEqual(mockCardDetails.Title);
     });
+
+    it('Renders a button to allow the user to buy the card', async () => {
+        const component = render();
+        await waitForAsync();
+        component.update();
+        expect(
+            component.find('[data-testid="card-details__button"]').exists()
+        ).toBeTruthy();
+    });
 });

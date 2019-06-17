@@ -32,6 +32,19 @@ exports[`Card Details renders the app as expected 1`] = `
           data-testid="card-details__title"
         />
       </div>
+      <div
+        className="card-details__column-2-row-2 row"
+        data-testid="card-details__column-2-row2"
+      >
+        <button
+          className="card-details__button btn btn-primary"
+          data-testid="card-details__button"
+          disabled={false}
+          type="button"
+        >
+          Buy Me!
+        </button>
+      </div>
     </div>
   </div>
 </div>

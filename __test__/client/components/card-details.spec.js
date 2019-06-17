@@ -80,9 +80,7 @@ describe('Card Details', () => {
             });
 
             it('Handles the error and sets some error state', async () => {
-                // process.nextTick(() => {
                 expect(component.state().errors).toBe(1);
-                // });
             });
         });
     });

@@ -15,4 +15,15 @@ describe('Card Details', () => {
             component.find('[data-testid="card-details__container"]').exists()
         ).toBeTruthy();
     });
+
+    it('Renders two columns to house the card details', () => {
+        const component = render();
+        expect(
+            component.find('[data-testid="card-details__column-1"]').exists()
+        ).toBeTruthy();
+
+        expect(
+            component.find('[data-testid="card-details__column-2"]').exists()
+        ).toBeTruthy();
+    });
 });

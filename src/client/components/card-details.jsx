@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Col, Row, Button } from 'react-bootstrap';
 import propTypes from 'prop-types';
 
 class CardDetails extends Component {
@@ -14,7 +14,8 @@ class CardDetails extends Component {
     render() {
         return (
             <Container data-testid="card-details__container">
-                <h1>THIS IS MY CARD DETAILS COMPONENT</h1>
+                <Col data-testid="card-details__column-1"></Col>
+                <Col data-testid="card-details__column-2"></Col>
             </Container>
         )
     }

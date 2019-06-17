@@ -45,7 +45,11 @@ class CardDetails extends Component {
                         />
                     </Col>
                     <Col data-testid="card-details__column-2" className="card-details__column-1">
-
+                        <Row data-testid="card-details__column-2-row1" className="card-details__column-2-row-1">
+                            <h1 data-testid="card-details__title" className="card-details__title">
+                                {this.state.card_details ? this.state.card_details.Title : null}
+                            </h1>
+                        </Row>
                     </Col>
                 </Row>
             </Container >

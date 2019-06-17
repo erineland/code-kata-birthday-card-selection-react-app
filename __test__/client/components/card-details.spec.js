@@ -118,4 +118,13 @@ describe('Card Details', () => {
             component.find('img').prop('src')
         ).toEqual(mockCardDetails.ImageUrls[0].ImageUrl);
     });
+
+    it('Displays the retrieved cards title', async () => {
+        const component = render();
+        await waitForAsync();
+        component.update();
+        expect(
+            component.find('[data-testid="card-details__title"]').text()
+        ).toEqual(mockCardDetails.Title);
+    });
 });

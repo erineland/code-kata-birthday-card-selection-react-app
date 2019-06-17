@@ -22,7 +22,17 @@ exports[`Card Details renders the app as expected 1`] = `
     <div
       className="card-details__column-1 col"
       data-testid="card-details__column-2"
-    />
+    >
+      <div
+        className="card-details__column-2-row-1 row"
+        data-testid="card-details__column-2-row1"
+      >
+        <h1
+          className="card-details__title"
+          data-testid="card-details__title"
+        />
+      </div>
+    </div>
   </div>
 </div>
 `;

@@ -21,11 +21,10 @@ body {
   }
 
   .card-grid__card-item {
-    padding: 24px;
+    padding: 24px; // Will try to use units of 8px
     background: transparent;
     border: none;
 
-    // Set flex-item properties here, different for each device breakpoint
     @include mq(mobile, tablet) {
         width: 50%;
     }

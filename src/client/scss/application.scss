@@ -6,35 +6,10 @@ $mq-breakpoints: (
 );
 
 @import "mq";
+@import "./card-grid";
 
 body {
   background: #f7f7f7; // TODO: Move colours into variable/theming files
   color: #3e3e3e; // TODO: Same as above
   text-align: center;
-
-  .card-grid__container {
-    display: flex;
-
-    @include mq($from: mobile) {
-        flex-wrap: wrap;
-    }
-  }
-
-  .card-grid__card-item {
-    padding: 24px; // Will try to use units of 8px
-    background: transparent;
-    border: none;
-
-    @include mq(mobile, tablet) {
-        width: 50%;
-    }
-
-    @include mq(tablet, desktop) {
-        width: 33%;
-    }
-
-    @include mq($from: desktop) {
-        width: 25%;
-    }
-  }
 }

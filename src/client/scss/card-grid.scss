@@ -1,22 +1,25 @@
-@import "mq";
 .card-grid__container {
-  // from mobile to tablet - 1 column
-  @include mq($until: tablet) {
-    grid-template-columns: 1fr;
+    display: flex;
+
+    @include mq($from: mobile) {
+        flex-wrap: wrap;
+    }
   }
 
-  // from tablet to desktop - 2 columns
-  @include mq($until: desktop) {
-    grid-template-columns: 1fr 1fr;
-  }
+  .card-grid__card-item {
+    padding: 24px; // Will try to use units of 8px
+    background: transparent;
+    border: none;
 
-  // from desktop to wide - 3 columns
-  @include mq($until: wide) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+    @include mq(mobile, tablet) {
+        width: 50%;
+    }
 
-  // from wide upwards - 4 columns
-  @include mq($from: wide) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @include mq(tablet, desktop) {
+        width: 33%;
+    }
+
+    @include mq($from: desktop) {
+        width: 25%;
+    }
   }
-}

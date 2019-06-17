@@ -14,18 +14,12 @@ class CardDetails extends Component {
 
     componentDidMount() {
         const moonpigProductId = this.state.product_id;
-        // console.info(`The moonpigProductId is: ${moonpigProductId}`);
         this.props.cardService.getCardDetails(moonpigProductId)
             .then(cardDetails => {
-                // console.info(`cardDetails.componentDidMount success`);
-                // console.info(
-                //     `The response from the Moonpig cards API for card details is: ${JSON.stringify(cardDetails)}`
-                // );
                 this.setState({
                     card_details: cardDetails,
                 });
             }).catch(error => {
-                // console.error(`cardDetails.componentDidMount Error: ${error.message}`);
                 this.setState({
                     errors: this.state.errors.push(error),
                 })

@@ -59,8 +59,6 @@ describe('Card Service', () => {
         })
 
         describe('When the network call to the cards endpoint fails', () => {
-
-            // Setup the mock axios to return a network error
             beforeEach(() => {
                 const mockAxiosGetFailure = jest.fn(() => Promise.reject(new Error('get cards failed')));
                 mockAxios = {
@@ -112,7 +110,6 @@ describe('Card Service', () => {
         })
 
         describe('When the network call to the cards endpoint fails', () => {
-            // Setup the mock axios to return a network error
             beforeEach(() => {
                 const mockAxiosGetCardDetailsFailure = jest.fn(() => Promise.reject(new Error('get card details failed')));
                 mockAxios = {

@@ -63,11 +63,11 @@ describe('Card Grid', () => {
         describe('When making the call to the cards service', () => {
             describe('When the call to the cards service succeeds', () => {
                 it('Sets the card details on the state', () => {
-                    // process.nextTick(() => {
-                        // expect(
-                            // component.find('[data-testid="card-item-1"]').exists()
-                        // ).toBeTruthy()
-                    // });
+                    expect(
+                        component.state().cards
+                    ).toEqual(
+                        mockCards
+                    )
                 })
             });
 

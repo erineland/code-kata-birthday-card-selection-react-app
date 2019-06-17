@@ -58,19 +58,13 @@ describe('Card Grid', () => {
 
         describe('When making the call to the cards service', () => {
             describe('When the call to the cards service succeeds', () => {
-                // it('Successfully saves the list of cards onto the state', async () => {
-                //     // process.nextTick(() => {
-                //         expect(component.state().cards).toEqual(mockCards);
-                //     // });
-                // })
-
-                // it('Renders a table with the card items', () => {
-                //     process.nextTick(() => {
-                //         expect(
-                //             component.find('[data-testid="card-item-1"]').exists()
-                //         ).toBeTruthy()
-                //     });
-                // })
+                it('Renders a table with the card items', () => {
+                    // process.nextTick(() => {
+                        // expect(
+                            // component.find('[data-testid="card-item-1"]').exists()
+                        // ).toBeTruthy()
+                    // });
+                })
             });
 
             describe('When the call to the cards service fails', () => {

@@ -5,6 +5,10 @@ import propTypes from 'prop-types';
 class CardDetails extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            recipe_id: this.props.match ? this.props.match.params.moonpig_product_id : undefined,
+            errors: []
+        };
     }
 
     render() {

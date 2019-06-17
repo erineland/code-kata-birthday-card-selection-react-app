@@ -1,6 +1,8 @@
-# React Express Project Startup Structure
+# ***REMOVED*** ***REMOVED*** - Moonpig Card Shop Coding Exercise
 
-This is a startup project with a basic Express server to return a React application.
+Hosted solution on Google Cloud: https://react-express-card-sample-site.appspot.com
+
+Express server to render a React application.
 
 To use:
 - npm install

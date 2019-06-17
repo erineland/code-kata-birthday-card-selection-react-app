@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Details renders the app as expected 1`] = `
+<div
+  className="container"
+  data-testid="card-details__container"
+>
+  <div
+    className="row"
+    data-testid="card-details__row"
+  >
+    <div
+      className="col"
+      data-testid="card-details__column-1"
+    />
+    <div
+      className="col"
+      data-testid="card-details__column-2"
+    />
+  </div>
+</div>
+`;

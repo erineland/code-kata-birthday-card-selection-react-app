@@ -31,7 +31,7 @@ class CardGrid extends Component {
         {
           this.state.cards.map((currentCard, index) => {
             return (
-              <Card data-testid={`card-grid__card-item-${index}`} className="card-grid__card-item">
+              <Card key={`card-grid__card-item-${index}`} data-testid={`card-grid__card-item-${index}`} className="card-grid__card-item">
                 <Card.Link href={`/card-details/${currentCard.MoonpigProductNo}`}>
                   <Card.Img variant="top" src={currentCard.ProductImage.Link.Href} alt={currentCard.title} />
                 </Card.Link>

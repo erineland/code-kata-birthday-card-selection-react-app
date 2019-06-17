@@ -109,4 +109,13 @@ describe('Card Details', () => {
             component.find('[data-testid="card-details__image"]').exists()
         ).toBeTruthy();
     });
+
+    it('Sets the image of the card to be that of the retrieved card details', async () => {
+        const component = render();
+        await waitForAsync();
+        component.update();
+        expect(
+            component.find('img').prop('src')
+        ).toEqual(mockCardDetails.ImageUrls[0].ImageUrl);
+    });
 });

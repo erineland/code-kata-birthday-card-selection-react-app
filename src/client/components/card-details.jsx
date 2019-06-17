@@ -34,12 +34,17 @@ class CardDetails extends Component {
 
     render() {
         return (
-            <Container data-testid="card-details__container" >
-                <Row data-testid="card-details__row">
-                    <Col data-testid="card-details__column-1">
-                        <Image data-testid="card-details__image" src="holder.js/100px250" fluid />
+            <Container data-testid="card-details__container" className="card-details__container">
+                <Row data-testid="card-details__row" className="card-details__row">
+                    <Col data-testid="card-details__column-1" className="card-details__column-1">
+                        <Image
+                            data-testid="card-details__image"
+                            className="card-details__column-1"
+                            src={this.state.card_details ? this.state.card_details.ImageUrls[0].ImageUrl : null}
+                            fluid
+                        />
                     </Col>
-                    <Col data-testid="card-details__column-2">
+                    <Col data-testid="card-details__column-2" className="card-details__column-1">
 
                     </Col>
                 </Row>

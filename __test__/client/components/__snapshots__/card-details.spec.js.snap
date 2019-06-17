@@ -2,25 +2,25 @@
 
 exports[`Card Details renders the app as expected 1`] = `
 <div
-  className="container"
+  className="card-details__container container"
   data-testid="card-details__container"
 >
   <div
-    className="row"
+    className="card-details__row row"
     data-testid="card-details__row"
   >
     <div
-      className="col"
+      className="card-details__column-1 col"
       data-testid="card-details__column-1"
     >
       <img
-        className="img-fluid"
+        className="card-details__column-1 img-fluid"
         data-testid="card-details__image"
-        src="holder.js/100px250"
+        src={null}
       />
     </div>
     <div
-      className="col"
+      className="card-details__column-1 col"
       data-testid="card-details__column-2"
     />
   </div>

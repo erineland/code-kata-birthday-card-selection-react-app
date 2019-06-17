@@ -6,7 +6,7 @@ export default class CardService {
     }
 
     getCards() {
-        return this.axios.get('/api/products?size=20&fq=card_shop_id:1')
+        return this.axios.get('https://search.moonpig.com/api/products?size=20&fq=card_shop_id:1')
             .then(response => {
                 if (response.data) {
                     return response && response.data;
@@ -20,10 +20,7 @@ export default class CardService {
     }
 
     getCardDetails(moonpigProductId) {
-        return this.axios.get({
-            url: `uk/api/product/product/?mpn=${moonpigProductId}`,
-            baseUrl: 'https://www.moonpig.com/'
-        })
+        return this.axios.get(`https://www.moonpig.com/uk/api/product/product/?mpn=${moonpigProductId}`)
             .then(response => {
                 if (response.data) {
                     return response && response.data;

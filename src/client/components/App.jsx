@@ -20,8 +20,8 @@ class App extends Component {
         />
         <Route
           path="/card-details/:moonpig_product_id"
-          render={() => {
-            return <CardDetails />
+          render={(props) => {
+            return <CardDetails cardService={this.props.cardService} {...props}/>
           }}
         />
       </Router>

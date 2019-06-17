@@ -7,9 +7,7 @@ import styles from './scss/application.scss';
 import axios from 'axios';
 import CardService from '../client/services/card-service';
 
-const axiosInstance = axios.create({
-  baseURL: 'https://search.moonpig.com',
-});
+const axiosInstance = axios.create();
 
 const cardService = new CardService(axiosInstance);
 

@@ -43,7 +43,7 @@ describe('Card Service', () => {
             expect(
                 mockAxios.get
             ).toHaveBeenCalledWith(
-                '/api/products?size=20&fq=card_shop_id:1'
+                'https://search.moonpig.com/api/products?size=20&fq=card_shop_id:1'
             )
         });
 
@@ -88,14 +88,13 @@ describe('Card Service', () => {
             newCardService = new CardService(mockAxios);
         });
         it('Makes a network call via axios to the get card details endpoint', async () => {
-            console.log(`moonpigProductId is: ${moonpigProductId}`);
+            // console.log(`moonpigProductId is: ${moonpigProductId}`);
             const cardsToRender = await newCardService.getCardDetails(moonpigProductId);
             expect(
                 mockAxios.get
-            ).toHaveBeenCalledWith({
-                url: `uk/api/product/product/?mpn=${moonpigProductId}`,
-                baseUrl: 'https://www.moonpig.com/'
-            })
+            ).toHaveBeenCalledWith(
+                "https://www.moonpig.com/uk/api/product/product/?mpn=pu1162"
+            )
         });
 
         describe('When the network call to the cards endpoint succeeds', () => {

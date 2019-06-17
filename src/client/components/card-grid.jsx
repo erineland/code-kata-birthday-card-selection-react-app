@@ -13,12 +13,12 @@ class CardGrid extends Component {
 
   componentDidMount() {
     this.props.cardService.getCards().then(cards => {
-      console.info(`The response from the Moonpig cards API is: ${JSON.stringify(cards)}`);
+      // console.info(`The response from the Moonpig cards API is: ${JSON.stringify(cards)}`);
       this.setState({
         cards: cards.Products,
       });
     }).catch(error => {
-      console.error(`cardGrid.componentDidMount Error: ${error.message}`);
+      // console.error(`cardGrid.componentDidMount Error: ${error.message}`);
       this.setState({
         errors: this.state.errors.push(error),
       })

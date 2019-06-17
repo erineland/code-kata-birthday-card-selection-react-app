@@ -95,9 +95,42 @@ describe('Card Service', () => {
             expect(
                 mockAxios.get
             ).toHaveBeenCalledWith({
-                    url: `uk/api/product/product/?mpn=${moonpigProductId}`,
-                    baseUrl: 'https://www.moonpig.com/'
+                url: `uk/api/product/product/?mpn=${moonpigProductId}`,
+                baseUrl: 'https://www.moonpig.com/'
             })
         });
+
+        describe('When the network call to the cards endpoint succeeds', () => {
+            it('Returns the list of cards to the caller', async () => {
+                const cardsToRender = await newCardService.getCardDetails(moonpigProductId);
+                expect(
+                    cardsToRender
+                ).toEqual(
+                    mockCardDetails.data
+                );
+            });
+        })
+
+        describe('When the network call to the cards endpoint fails', () => {
+            // Setup the mock axios to return a network error
+            beforeEach(() => {
+                const mockAxiosGetCardDetailsFailure = jest.fn(() => Promise.reject(new Error('get card details failed')));
+                mockAxios = {
+                    get: mockAxiosGetCardDetailsFailure,
+                };
+                newCardService = new CardService(mockAxios);
+            });
+
+            it('Catches the error and returns a meaningful error to the caller', async () => {
+                try {
+                    const cardsToRender = await newCardService.getCardDetails(moonpigProductId);
+                    expect(cardsToRender).toEqual(null);
+                } catch (cardServiceError) {
+                    expect(cardServiceError.message).toEqual(
+                        'CardService.getCardDetails Error: get card details failed'
+                    );
+                }
+            });
+        });
     });
-})
+});

@@ -16,6 +16,13 @@ describe('Card Details', () => {
         ).toBeTruthy();
     });
 
+    it('Renders a row to house the card details', () => {
+        const component = render();
+        expect(
+            component.find('[data-testid="card-details__row"]').exists()
+        ).toBeTruthy();
+    });
+
     it('Renders two columns to house the card details', () => {
         const component = render();
         expect(

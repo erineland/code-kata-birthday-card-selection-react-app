@@ -14,8 +14,10 @@ class CardDetails extends Component {
     render() {
         return (
             <Container data-testid="card-details__container">
-                <Col data-testid="card-details__column-1"></Col>
-                <Col data-testid="card-details__column-2"></Col>
+                <Row data-testid="card-details__row">
+                    <Col data-testid="card-details__column-1"></Col>
+                    <Col data-testid="card-details__column-2"></Col>
+                </Row>
             </Container>
         )
     }

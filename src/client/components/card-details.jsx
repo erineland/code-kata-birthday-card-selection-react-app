@@ -5,8 +5,6 @@ import propTypes from 'prop-types';
 class CardDetails extends Component {
     constructor(props) {
         super(props);
-        console.info(`this.props.match is: ${this.props.match}`);
-        // console.info(`this.props.match.params.moonpig_product_id is: ${this.props.match.params.moonpig_product_id}`);
         this.state = {
             product_id: this.props.match ? this.props.match.params.moonpig_product_id : undefined,
             card_details: undefined,
@@ -16,10 +14,10 @@ class CardDetails extends Component {
 
     componentDidMount() {
         const moonpigProductId = this.state.product_id;
-        console.info(`The moonpigProductId is: ${moonpigProductId}`);
+        // console.info(`The moonpigProductId is: ${moonpigProductId}`);
         this.props.cardService.getCardDetails(moonpigProductId)
             .then(cardDetails => {
-                console.info(`cardDetails.componentDidMount success`);
+                // console.info(`cardDetails.componentDidMount success`);
                 // console.info(
                 //     `The response from the Moonpig cards API for card details is: ${JSON.stringify(cardDetails)}`
                 // );
@@ -27,7 +25,7 @@ class CardDetails extends Component {
                     card_details: cardDetails,
                 });
             }).catch(error => {
-                console.error(`cardDetails.componentDidMount Error: ${error.message}`);
+                // console.error(`cardDetails.componentDidMount Error: ${error.message}`);
                 this.setState({
                     errors: this.state.errors.push(error),
                 })

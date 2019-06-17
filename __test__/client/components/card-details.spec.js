@@ -103,10 +103,10 @@ describe('Card Details', () => {
         ).toBeTruthy();
     });
 
-    // it('Displays an image of the card', () => {
-    //     const component = render();
-    //     expect(
-    //         component.find('[data-testid="card-details__image"]').exists()
-    //     ).toBeTruthy();
-    // });
+    it('Displays an image of the card', () => {
+        const component = render();
+        expect(
+            component.find('[data-testid="card-details__image"]').exists()
+        ).toBeTruthy();
+    });
 });

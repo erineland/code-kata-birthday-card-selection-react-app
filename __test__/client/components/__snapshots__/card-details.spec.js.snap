@@ -12,7 +12,13 @@ exports[`Card Details renders the app as expected 1`] = `
     <div
       className="col"
       data-testid="card-details__column-1"
-    />
+    >
+      <img
+        className="img-fluid"
+        data-testid="card-details__image"
+        src="holder.js/100px250"
+      />
+    </div>
     <div
       className="col"
       data-testid="card-details__column-2"

@@ -37,7 +37,7 @@ class CardDetails extends Component {
             <Container data-testid="card-details__container" >
                 <Row data-testid="card-details__row">
                     <Col data-testid="card-details__column-1">
-                        {/* <Image src="holder.js/100px250" fluid /> */}
+                        <Image data-testid="card-details__image" src="holder.js/100px250" fluid />
                     </Col>
                     <Col data-testid="card-details__column-2">
 

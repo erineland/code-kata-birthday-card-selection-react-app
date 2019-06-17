@@ -19,6 +19,8 @@ describe('Card Grid', () => {
         getCards: getCardsMock
     }
 
+    const waitForAsync = () => new Promise(resolve => setImmediate(resolve))
+
     const render = customProps => {
         const props = {
             cardService: cardServiceMock,
@@ -27,8 +29,10 @@ describe('Card Grid', () => {
         return mount(<CardGrid {...props} />);
     }
 
-    beforeEach(() => {
+    beforeEach(async () => {
         component = render();
+        await waitForAsync();
+        component.update();
     });
 
     afterEach(() => {
@@ -51,9 +55,9 @@ describe('Card Grid', () => {
         });
 
         it('makes a call to get the list of cards to render', () => {
-            // expect(
-            //     getCardsMock
-            // ).toHaveBeenCalled();
+            expect(
+                getCardsMock
+            ).toHaveBeenCalled();
         });
 
         describe('When making the call to the cards service', () => {

@@ -4,7 +4,7 @@
   "description": "This application is code exercise for a made up card shop",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./server.js",
+    "start": "npm run webpack; nodemon ./server.js",
     "webpack": "./node_modules/.bin/webpack",
     "deploy": "npm run webpack; gcloud app deploy",
     "webpack:watch": "./node_modules/.bin/webpack -w",

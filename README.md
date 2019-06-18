@@ -8,7 +8,6 @@ Uses Jest for testing.
 
 To use:
 - npm install
-- npm run webpack
 - npm start
 
 To test:

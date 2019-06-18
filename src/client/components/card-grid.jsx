@@ -39,18 +39,6 @@ class CardGrid extends Component {
                   <Card.Link href={`/card-details/${currentCard.MoonpigProductNo}`}>
                     <Card.Img variant="top" src={currentCard.ProductImage.Link.Href} alt={currentCard.Title} />
                   </Card.Link>
-                  {/* <Card.Body>
-                  <Card.Title>{currentCard.Title}</Card.Title>
-                  <Card.Text>{currentCard.Description}</Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>Price: {currentCard.Price.currency}{currentCard.Price.Value}</ListGroupItem>
-                  <ListGroupItem>Rating: {currentCard.Reviews.AverageReviewRating}</ListGroupItem>
-                  <ListGroupItem>Total Reviews: {currentCard.Reviews.ReviewCount}</ListGroupItem>
-                </ListGroup>
-                <Card.Body>
-                  <Card.Link href={currentCard.ProductLink.Href}>Card Link</Card.Link>
-                </Card.Body> */}
                 </Card>)
             })
           }

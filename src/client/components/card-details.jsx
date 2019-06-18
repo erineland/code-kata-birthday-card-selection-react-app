@@ -46,7 +46,14 @@ class CardDetails extends Component {
                             </h2>
                         </Row>
                         <Row data-testid="card-details__column-2-row2" className="card-details__column-2-row-2">
-                            <Button data-testid="card-details__button" size="lg" className="card-details__button">Buy Me!</Button>
+                            <Button
+                                data-testid="card-details__button"
+                                size="lg"
+                                className="card-details__button"
+                                href={this.state.card_details ? this.state.card_details.ProductUrl : null}
+                            >
+                                Buy Me!
+                            </Button>
                         </Row>
                     </Col>
                 </Row>

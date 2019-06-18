@@ -154,4 +154,13 @@ describe('Card Details', () => {
             component.find('[data-testid="card-details__button"]').at(0).prop('size')
         ).toEqual('lg');
     });
+
+    it('Makes the button link to the product page on the moonpig site', async () => {
+        const component = render();
+        await waitForAsync();
+        component.update();
+        expect(
+            component.find('[data-testid="card-details__button"]').at(0).prop('href')
+        ).toEqual(mockCardDetails.ProductUrl);
+    });
 });

@@ -41,6 +41,7 @@ exports[`Card Details renders the app as expected 1`] = `
           className="card-details__button btn btn-primary btn-lg"
           data-testid="card-details__button"
           disabled={false}
+          href={null}
           type="button"
         >
           Buy Me!

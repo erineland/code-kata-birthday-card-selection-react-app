@@ -50,7 +50,6 @@ class CardGrid extends Component {
   handleCardSearch() {
     if (!this.state.searchButtonActive && this.state.inputfield) {
       //Filter list based on filter value.
-      debugger;
       var filteredCards = this.props.cardService.filterCards(this.state.inputfield);
 
       this.setState({
@@ -59,8 +58,9 @@ class CardGrid extends Component {
       });
     } else if (this.state.searchButtonActive) {
       //show all cards again.
+      debugger;
       this.setState({
-        cards: this.props.cards,
+        cards: this.state.allCards,
         searchButtonActive: false,
       })
     }
@@ -91,8 +91,8 @@ class CardGrid extends Component {
               placeholder="Filter cards here..."
               aria-label="Card Filter"
             />
-            <InputGroup.Append color="secondary" onClick={this.handleCardSearch}>
-              <Button>
+            <InputGroup.Append color="secondary">
+              <Button onClick={this.handleCardSearch}>
                 {this.state.searchButtonActive ? 'Show All' : 'Filter'}
               </Button>
             </InputGroup.Append>

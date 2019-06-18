@@ -34,11 +34,11 @@ exports[`App renders the app as expected 1`] = `
       <div
         className="input-group-append"
         color="secondary"
-        onClick={[Function]}
       >
         <button
           className="btn btn-primary"
           disabled={false}
+          onClick={[Function]}
           type="button"
         >
           Filter

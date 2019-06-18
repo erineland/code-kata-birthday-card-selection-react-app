@@ -31,7 +31,7 @@ class CardGrid extends Component {
       // console.info(`The response from the Moonpig cards API is: ${JSON.stringify(cards)}`);
       this.setState({
         cards: cards.Products,
-        allCards: card.Products,
+        allCards: cards.Products,
       });
     }).catch(error => {
       // console.error(`cardGrid.componentDidMount Error: ${error.message}`);

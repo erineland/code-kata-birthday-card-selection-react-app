@@ -6,8 +6,8 @@ exports[`App renders the app as expected 1`] = `
   data-testid="card-grid"
 >
   <div
-    className="card-grid__row-1 row"
-    data-testid="card-grid__row-1"
+    className="card-grid__title-row row"
+    data-testid="card-grid__title-row"
   >
     <h1
       data-testid="card-grid__title"
@@ -16,8 +16,41 @@ exports[`App renders the app as expected 1`] = `
     </h1>
   </div>
   <div
-    className="card-grid__row-2 row"
-    data-testid="card-grid__row-2"
-  />
+    className="card-grid__filter-row row"
+    data-testid="card-grid__filter-row"
+  >
+    <div
+      className="input-group"
+    >
+      <input
+        aria-label="Card Filter"
+        className="form-control"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Filter cards here..."
+      />
+      <div
+        className="input-group-append"
+        color="secondary"
+        onClick={[Function]}
+      >
+        <button
+          className="btn btn-primary"
+          disabled={false}
+          type="button"
+        >
+          Filter
+        </button>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    className="fade card-grid__no-results-warning alert alert-warning show"
+    data-testid="card-grid__no-results-warning"
+    role="alert"
+  >
+    Sorry, we currently have no cards for you
+  </div>
 </div>
 `;

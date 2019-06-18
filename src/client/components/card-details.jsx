@@ -46,7 +46,7 @@ class CardDetails extends Component {
                             </h2>
                         </Row>
                         <Row data-testid="card-details__column-2-row2" className="card-details__column-2-row-2">
-                            <Button data-testid="card-details__button" className="card-details__button">Buy Me!</Button>
+                            <Button data-testid="card-details__button" size="lg" className="card-details__button">Buy Me!</Button>
                         </Row>
                     </Col>
                 </Row>

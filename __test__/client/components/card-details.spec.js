@@ -145,4 +145,13 @@ describe('Card Details', () => {
             component.find('[data-testid="card-details__button"]').exists()
         ).toBeTruthy();
     });
+
+    it('Renders a large button', async () => {
+        const component = render();
+        await waitForAsync();
+        component.update();
+        expect(
+            component.find('[data-testid="card-details__button"]').at(0).prop('size')
+        ).toEqual('lg');
+    });
 });

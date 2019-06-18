@@ -5,10 +5,17 @@ exports[`Card Grid When loading the component renders the app as expected 1`] = 
   className="card-grid__container container"
   data-testid="card-grid"
 >
-  <h1
-    data-testid="card-grid__title"
+  <div
+    className="row"
   >
-    Greetings Cards!
-  </h1>
+    <h1
+      data-testid="card-grid__title"
+    >
+      Greetings Cards!
+    </h1>
+  </div>
+  <div
+    className="row"
+  />
 </div>
 `;

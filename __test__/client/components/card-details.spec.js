@@ -119,6 +119,15 @@ describe('Card Details', () => {
         ).toEqual(mockCardDetails.ImageUrls[0].ImageUrl);
     });
 
+    it('Sets an accessible alt tag on the image of the card', async () => {
+        const component = render();
+        await waitForAsync();
+        component.update();
+        expect(
+            component.find('img').prop('alt')
+        ).toEqual(mockCardDetails.Title);
+    })
+
     it('Displays the retrieved cards title', async () => {
         const component = render();
         await waitForAsync();

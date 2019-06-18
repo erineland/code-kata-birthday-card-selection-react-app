@@ -35,6 +35,7 @@ class CardDetails extends Component {
                             data-testid="card-details__image"
                             className="card-details__image"
                             src={this.state.card_details ? this.state.card_details.ImageUrls[0].ImageUrl : null}
+                            alt={this.state.card_details ? this.state.card_details.Title : null}
                             fluid
                         />
                     </Col>

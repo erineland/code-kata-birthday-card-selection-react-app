@@ -40,7 +40,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 // set the static files location e.g. /public/img will be /img for users
 app.use(express.static(__dirname)); //exposes index.html
-app.use('/card-details/:moonpig_product_no', express.static(__dirname));
+app.use('/card-details/:product_no', express.static(__dirname));
 
 // routes ==================================================
 require('./src/server/routes')(app); // configure our routes

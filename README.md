@@ -1,4 +1,4 @@
-# ***REMOVED*** ***REMOVED*** - Moonpig Card Shop Coding Exercise
+# ***REMOVED*** ***REMOVED*** - Card Shop Coding Exercise
 
 Hosted solution on Google Cloud: https://react-express-card-sample-site.appspot.com
 

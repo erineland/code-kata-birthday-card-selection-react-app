@@ -155,7 +155,7 @@ describe('Card Details', () => {
         ).toEqual('lg');
     });
 
-    it('Makes the button link to the product page on the moonpig site', async () => {
+    it('Makes the button link to the product page on the main site', async () => {
         const component = render();
         await waitForAsync();
         component.update();

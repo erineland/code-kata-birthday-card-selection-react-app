@@ -28,13 +28,11 @@ class CardGrid extends Component {
 
   componentDidMount() {
     this.props.cardService.getCards().then(cards => {
-      // console.info(`The response from the Moonpig cards API is: ${JSON.stringify(cards)}`);
       this.setState({
         cards: cards.Products,
         allCards: cards.Products,
       });
     }).catch(error => {
-      // console.error(`cardGrid.componentDidMount Error: ${error.message}`);
       this.setState({
         errors: this.state.errors.push(error),
       })
@@ -79,24 +77,22 @@ class CardGrid extends Component {
         <Row data-testid="card-grid__title-row" className="card-grid__title-row">
           <h1 data-testid="card-grid__title">Greetings Cards!</h1>
         </Row>
-        <Row data-testid="card-grid__filter-row" className="card-grid__filter-row">
-          <InputGroup data-testid="card-grid__search-field" className="card-grid__search-field">
-            <FormControl
-              data-testid="card-grid__search-input"
-              className="card-grid__search-input"
-              ref="filterField"
-              onKeyPress={this.handleKeyPress}
-              onChange={this.updateInputValue}
-              placeholder="Filter cards here..."
-              aria-label="Card Filter"
-            />
-            <InputGroup.Append color="secondary">
-              <Button onClick={this.handleCardSearch}>
-                {this.state.searchButtonActive ? 'Show All' : 'Filter'}
-              </Button>
-            </InputGroup.Append>
-          </InputGroup>
-        </Row>
+        <InputGroup data-testid="card-grid__search-field" className="card-grid__search-field">
+          <FormControl
+            data-testid="card-grid__search-input"
+            className="card-grid__search-input"
+            ref="filterField"
+            onKeyPress={this.handleKeyPress}
+            onChange={this.updateInputValue}
+            placeholder="Filter cards here..."
+            aria-label="Card Filter"
+          />
+          <InputGroup.Append color="secondary">
+            <Button onClick={this.handleCardSearch}>
+              {this.state.searchButtonActive ? 'Show All' : 'Filter'}
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
         <br />
         {cardList ?
           cardList.length > 0 ?
@@ -119,7 +115,7 @@ class CardGrid extends Component {
               variant='warning'
             >
               Sorry, we currently have no cards for you
-            </Alert>
+              </Alert>
           :
           <Alert
             variant='warning'

@@ -13,8 +13,8 @@ class CardDetails extends Component {
     }
 
     componentDidMount() {
-        const moonpigProductId = this.state.product_id;
-        this.props.cardService.getCardDetails(moonpigProductId)
+        const productId = this.state.product_id;
+        this.props.cardService.getCardDetails(productId)
             .then(cardDetails => {
                 this.setState({
                     card_details: cardDetails,

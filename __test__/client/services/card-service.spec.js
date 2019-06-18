@@ -24,7 +24,7 @@ describe('Card Service', () => {
     let mockAxios = {
         get: mockAxiosGetCards,
     };
-    const moonpigProductId = 'pu1162';
+    const productId = 'pu1162';
 
     beforeEach(() => {
         newCardService = new CardService(mockAxios);
@@ -104,7 +104,7 @@ describe('Card Service', () => {
             newCardService = new CardService(mockAxios);
         });
         it('Makes a network call via axios to the get card details endpoint', async () => {
-            const cardsToRender = await newCardService.getCardDetails(moonpigProductId);
+            const cardsToRender = await newCardService.getCardDetails(productId);
             expect(
                 mockAxios.get
             ).toHaveBeenCalledWith(
@@ -114,7 +114,7 @@ describe('Card Service', () => {
 
         describe('When the network call to the cards endpoint succeeds', () => {
             it('Returns the list of cards to the caller', async () => {
-                const cardsToRender = await newCardService.getCardDetails(moonpigProductId);
+                const cardsToRender = await newCardService.getCardDetails(productId);
                 expect(
                     cardsToRender
                 ).toEqual(
@@ -134,7 +134,7 @@ describe('Card Service', () => {
 
             it('Catches the error and returns a meaningful error to the caller', async () => {
                 try {
-                    const cardsToRender = await newCardService.getCardDetails(moonpigProductId);
+                    const cardsToRender = await newCardService.getCardDetails(productId);
                     expect(cardsToRender).toEqual(null);
                 } catch (cardServiceError) {
                     expect(cardServiceError.message).toEqual(

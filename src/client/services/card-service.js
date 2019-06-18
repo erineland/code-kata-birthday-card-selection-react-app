@@ -41,7 +41,8 @@ export default class CardService {
 
         filterTerm = filterTerm.toLowerCase();
 
-        const cardsToFilter = this.cachedCards;
+        const cardsToFilter = this.cachedCards.Products;
+        debugger;
         if (cardsToFilter) {
             cardsToFilter.forEach((currentCard, index, cards) => {
                 if (currentCard.Title.toLowerCase().indexOf(filterTerm) > -1) {

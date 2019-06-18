@@ -10,7 +10,9 @@ describe('Card Service', () => {
     let mockAxiosGetCards;
     let mockAxiosGetCardDetails;
     const mockCards = {
-        data: mockCardData
+        data: {
+            Products: mockCardData
+        }
     }
     const mockCardDetails = {
         data: {

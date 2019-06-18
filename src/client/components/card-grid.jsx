@@ -50,7 +50,8 @@ class CardGrid extends Component {
   handleCardSearch() {
     if (!this.state.searchButtonActive && this.state.inputfield) {
       //Filter list based on filter value.
-      var filteredCards = this.props.cardService.filterCards(this.props.cards, this.state.inputfield);
+      debugger;
+      var filteredCards = this.props.cardService.filterCards(this.state.inputfield);
 
       this.setState({
         cards: filteredCards,

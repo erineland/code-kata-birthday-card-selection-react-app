@@ -3,12 +3,18 @@
   flex-wrap: wrap;
 }
 
-.card-grid__row-1 {
+.card-grid__title-row {
   margin-top: $spacing-unit * 3;
   justify-content: center;
   flex-direction: row;
   flex-basis: 1;
   flex-basis: 100%;
+}
+
+.card-grid__filter-row {
+    flex-direction: row;
+    flex-basis: 100%;
+    margin: $spacing-unit * 2;
 }
 
 .card-grid__card-item {
@@ -27,4 +33,12 @@
   @include mq($from: desktop) {
     width: 25%;
   }
+}
+
+.card-grid__no-cards-warning {
+    width: 100%;
+}
+
+.card-grid__no-results-warning {
+    width: 100%;
 }

@@ -76,31 +76,29 @@ class CardGrid extends Component {
 
     return (
       <Container data-testid="card-grid" className="card-grid__container">
-        <Row data-testid="card-grid__row-1" className="card-grid__row-1">
+        <Row data-testid="card-grid__title-row" className="card-grid__title-row">
           <h1 data-testid="card-grid__title">Greetings Cards!</h1>
         </Row>
-        <Row>
-          <Col>
-            <InputGroup>
-              <FormControl
-                ref="filterField"
-                onKeyPress={this.handleKeyPress}
-                onChange={this.updateInputValue}
-                placeholder="Filter cards here..."
-                aria-label="Card Filter"
-              />
-              <InputGroup.Append color="secondary" onClick={this.handleCardSearch}>
-                <Button>
-                  {this.state.searchButtonActive ? 'Show All' : 'Filter'}
-                </Button>
-              </InputGroup.Append>
-            </InputGroup>
-          </Col>
+        <Row data-testid="card-grid__filter-row" className="card-grid__filter-row">
+          <InputGroup>
+            <FormControl
+              ref="filterField"
+              onKeyPress={this.handleKeyPress}
+              onChange={this.updateInputValue}
+              placeholder="Filter cards here..."
+              aria-label="Card Filter"
+            />
+            <InputGroup.Append color="secondary" onClick={this.handleCardSearch}>
+              <Button>
+                {this.state.searchButtonActive ? 'Show All' : 'Filter'}
+              </Button>
+            </InputGroup.Append>
+          </InputGroup>
         </Row>
         <br />
         {cardList ?
           cardList.length > 0 ?
-            <Row data-testid="card-grid__row-2" className="card-grid__row-2">
+            <Row data-testid="card-grid__card-grid-row" className="card-grid__card-grid-row">
               {
                 this.state.cards.map((currentCard, index) => {
                   return (
@@ -112,8 +110,22 @@ class CardGrid extends Component {
                 })
               }
             </Row>
-            : <Alert color='warning'>Sorry, we currently have no cards for you</Alert>
-          : <Alert color='warning'>Sorry, we currently have no cards for you</Alert>
+            :
+            <Alert
+              data-testid="card-grid__no-results-warning"
+              className="card-grid__no-results-warning"
+              variant='warning'
+            >
+              Sorry, we currently have no cards for you
+            </Alert>
+          :
+          <Alert
+            variant='warning'
+            data-testid="card-grid__no-cards-warning"
+            className="card-grid__no-cards-warning"
+          >
+            Sorry, we currently have no cards for you
+          </Alert>
         }
       </Container>
     )

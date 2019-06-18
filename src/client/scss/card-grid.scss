@@ -1,25 +1,30 @@
 .card-grid__container {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-    @include mq($from: mobile) {
-        flex-wrap: wrap;
-    }
+.card-grid__row-1 {
+  margin-top: $spacing-unit * 3;
+  justify-content: center;
+  flex-direction: row;
+  flex-basis: 1;
+  flex-basis: 100%;
+}
+
+.card-grid__card-item {
+  padding: $spacing-unit * 3;
+  background: transparent;
+  border: none;
+
+  @include mq($until: tablet) {
+    width: 50%;
   }
 
-  .card-grid__card-item {
-    padding: $spacing-unit * 3;
-    background: transparent;
-    border: none;
-
-    @include mq(mobile, tablet) {
-        width: 50%;
-    }
-
-    @include mq(tablet, desktop) {
-        width: 33%;
-    }
-
-    @include mq($from: desktop) {
-        width: 25%;
-    }
+  @include mq(tablet, desktop) {
+    width: 33%;
   }
+
+  @include mq($from: desktop) {
+    width: 25%;
+  }
+}

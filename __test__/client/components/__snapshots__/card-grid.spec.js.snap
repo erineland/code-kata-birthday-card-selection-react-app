@@ -6,7 +6,8 @@ exports[`Card Grid When loading the component renders the app as expected 1`] = 
   data-testid="card-grid"
 >
   <div
-    className="row"
+    className="card-grid__row-1 row"
+    data-testid="card-grid__row-1"
   >
     <h1
       data-testid="card-grid__title"
@@ -15,7 +16,8 @@ exports[`Card Grid When loading the component renders the app as expected 1`] = 
     </h1>
   </div>
   <div
-    className="row"
+    className="card-grid__row-2 row"
+    data-testid="card-grid__row-2"
   />
 </div>
 `;

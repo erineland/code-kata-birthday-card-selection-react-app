@@ -28,10 +28,10 @@ class CardGrid extends Component {
   render() {
     return (
       <Container data-testid="card-grid" className="card-grid__container">
-        <Row>
+        <Row data-testid="card-grid__row-1" className="card-grid__row-1">
           <h1 data-testid="card-grid__title">Greetings Cards!</h1>
         </Row>
-        <Row>
+        <Row data-testid="card-grid__row-2" className="card-grid__row-2">
           {
             this.state.cards.map((currentCard, index) => {
               return (

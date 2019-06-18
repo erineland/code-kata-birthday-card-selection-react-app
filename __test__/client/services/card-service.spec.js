@@ -1,11 +1,16 @@
 import CardService from '../../../src/client/services/card-service';
+import path from 'path';
+import fs from 'fs';
+
+const pathName = path.resolve(__dirname, `../../__mocks__/validCardResults.json`);
+const mockCardData = JSON.parse(fs.readFileSync(pathName, 'utf8'));
 
 describe('Card Service', () => {
     let newCardService;
     let mockAxiosGetCards;
     let mockAxiosGetCardDetails;
     const mockCards = {
-        data: ['card1', 'card2']
+        data: mockCardData
     }
     const mockCardDetails = {
         data: {
@@ -48,6 +53,15 @@ describe('Card Service', () => {
         });
 
         describe('When the network call to the cards endpoint succeeds', () => {
+            it('Stores the list of retrieved cards on the instance', async () => {
+                const cardsToRender = await newCardService.getCards();
+                expect(
+                    newCardService.cachedCards
+                ).toEqual(
+                    mockCards.data
+                );
+            });
+
             it('Returns the list of cards to the caller', async () => {
                 const cardsToRender = await newCardService.getCards();
                 expect(
@@ -88,7 +102,6 @@ describe('Card Service', () => {
             newCardService = new CardService(mockAxios);
         });
         it('Makes a network call via axios to the get card details endpoint', async () => {
-            // console.log(`moonpigProductId is: ${moonpigProductId}`);
             const cardsToRender = await newCardService.getCardDetails(moonpigProductId);
             expect(
                 mockAxios.get
@@ -128,5 +141,26 @@ describe('Card Service', () => {
                 }
             });
         });
+    });
+
+    describe('When the filterCards method is invoked', () => {
+        beforeEach(() => {
+            mockAxios = {
+                get: mockAxiosGetCardDetails,
+            }
+            newCardService = new CardService(mockAxios);
+        });
+
+        // it('Returns a list of filtered cards based on title and search input', async () => {
+        //     const filteredCards =
+        //         await newCardService.filterCards(
+        //             'Father'
+        //         );
+        //     expect(
+        //         filteredCards.length
+        //     ).toBe(
+        //         1
+        //     )
+        // });
     });
 });

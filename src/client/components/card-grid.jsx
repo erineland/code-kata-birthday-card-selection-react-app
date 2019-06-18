@@ -80,8 +80,10 @@ class CardGrid extends Component {
           <h1 data-testid="card-grid__title">Greetings Cards!</h1>
         </Row>
         <Row data-testid="card-grid__filter-row" className="card-grid__filter-row">
-          <InputGroup>
+          <InputGroup data-testid="card-grid__search-field" className="card-grid__search-field">
             <FormControl
+              data-testid="card-grid__search-input"
+              className="card-grid__search-input"
               ref="filterField"
               onKeyPress={this.handleKeyPress}
               onChange={this.updateInputValue}

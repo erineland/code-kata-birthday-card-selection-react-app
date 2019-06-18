@@ -20,11 +20,13 @@ exports[`Card Grid When loading the component renders the app as expected 1`] = 
     data-testid="card-grid__filter-row"
   >
     <div
-      className="input-group"
+      className="card-grid__search-field input-group"
+      data-testid="card-grid__search-field"
     >
       <input
         aria-label="Card Filter"
-        className="form-control"
+        className="card-grid__search-input form-control"
+        data-testid="card-grid__search-input"
         onChange={[Function]}
         onKeyPress={[Function]}
         placeholder="Filter cards here..."

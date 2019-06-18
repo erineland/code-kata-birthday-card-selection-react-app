@@ -9,6 +9,8 @@ export default class CardService {
         return this.axios.get('https://search.moonpig.com/api/products?size=20&fq=card_shop_id:1')
             .then(response => {
                 if (response.data) {
+                    // Cache the retrieved cards
+                    this.cachedCards = response.data;
                     return response && response.data;
                 }
             })

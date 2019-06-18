@@ -48,6 +48,12 @@ describe('Card Grid', () => {
             expect(tree).toMatchSnapshot();
         });
 
+        it('renders a title for the card grid', () => {
+            expect(
+                component.find('[data-testid="card-grid__title"]').exists()
+            ).toBeTruthy()
+        });
+
         it('renders a grid to house all of the available cards', () => {
             expect(
                 component.find('[data-testid="card-grid"]').exists()

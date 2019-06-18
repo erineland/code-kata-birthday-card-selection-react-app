@@ -28,14 +28,18 @@ class CardGrid extends Component {
   render() {
     return (
       <Container data-testid="card-grid" className="card-grid__container">
-        {
-          this.state.cards.map((currentCard, index) => {
-            return (
-              <Card key={`card-grid__card-item-${index}`} data-testid={`card-grid__card-item-${index}`} className="card-grid__card-item">
-                <Card.Link href={`/card-details/${currentCard.MoonpigProductNo}`}>
-                  <Card.Img variant="top" src={currentCard.ProductImage.Link.Href} alt={currentCard.title} />
-                </Card.Link>
-                {/* <Card.Body>
+        <Row>
+          <h1 data-testid="card-grid__title">Greetings Cards!</h1>
+        </Row>
+        <Row>
+          {
+            this.state.cards.map((currentCard, index) => {
+              return (
+                <Card key={`card-grid__card-item-${index}`} data-testid={`card-grid__card-item-${index}`} className="card-grid__card-item">
+                  <Card.Link href={`/card-details/${currentCard.MoonpigProductNo}`}>
+                    <Card.Img variant="top" src={currentCard.ProductImage.Link.Href} alt={currentCard.Title} />
+                  </Card.Link>
+                  {/* <Card.Body>
                   <Card.Title>{currentCard.Title}</Card.Title>
                   <Card.Text>{currentCard.Description}</Card.Text>
                 </Card.Body>
@@ -47,9 +51,10 @@ class CardGrid extends Component {
                 <Card.Body>
                   <Card.Link href={currentCard.ProductLink.Href}>Card Link</Card.Link>
                 </Card.Body> */}
-              </Card>)
-          })
-        }
+                </Card>)
+            })
+          }
+        </Row>
       </Container>
     )
   }

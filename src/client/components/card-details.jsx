@@ -6,7 +6,7 @@ class CardDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            product_id: this.props.match ? this.props.match.params.moonpig_product_id : undefined,
+            product_id: this.props.match ? this.props.match.params.product_id : undefined,
             card_details: undefined,
             errors: []
         };
@@ -16,6 +16,7 @@ class CardDetails extends Component {
         const productId = this.state.product_id;
         this.props.cardService.getCardDetails(productId)
             .then(cardDetails => {
+                debugger;
                 this.setState({
                     card_details: cardDetails,
                 });

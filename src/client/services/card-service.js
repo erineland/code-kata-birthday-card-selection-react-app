@@ -22,14 +22,16 @@ export default class CardService {
             });
     }
 
-    getCardDetails(moonpigProductId) {
-        return this.axios.get(`https://www.moonpig.com/uk/api/product/product/?mpn=${moonpigProductId}`)
+    getCardDetails(productId) {
+        return this.axios.get(`https://www.moonpig.com/uk/api/product/product/?mpn=${productId}`)
             .then(response => {
+                debugger;
                 if (response.data) {
                     return response && response.data;
                 }
             })
             .catch(error => {
+                debugger;
                 const getCardDetailsError = new Error(`CardService.getCardDetails Error: ${error.message}`);
                 console.error(getCardDetailsError.message);
                 throw getCardDetailsError;

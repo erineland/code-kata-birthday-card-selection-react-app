@@ -14,4 +14,5 @@ body {
   background: #f7f7f7; // TODO: Move colours into variable/theming files
   color: #3e3e3e; // TODO: Same as above
   text-align: center;
+  min-width: $spacing-unit * 40;
 }

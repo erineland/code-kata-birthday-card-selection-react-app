@@ -1,3 +1,22 @@
 .card-details__container {
-    margin-top: $spacing-unit * 11;
+  margin-top: $spacing-unit * 11;
+}
+
+.card-details__row {
+  @include mq($until: tablet) {
+    flex-direction: column;
+  }
+}
+
+.card-details__title {
+  @include mq($until: tablet) {
+    margin: ($spacing-unit * 5) ($spacing-unit * 5);
+  }
+}
+
+.card-details__column-2 {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

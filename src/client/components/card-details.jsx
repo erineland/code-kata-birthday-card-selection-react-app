@@ -33,16 +33,16 @@ class CardDetails extends Component {
                     <Col data-testid="card-details__column-1" className="card-details__column-1">
                         <Image
                             data-testid="card-details__image"
-                            className="card-details__column-1"
+                            className="card-details__image"
                             src={this.state.card_details ? this.state.card_details.ImageUrls[0].ImageUrl : null}
                             fluid
                         />
                     </Col>
-                    <Col data-testid="card-details__column-2" className="card-details__column-1">
+                    <Col data-testid="card-details__column-2" className="card-details__column-2">
                         <Row data-testid="card-details__column-2-row1" className="card-details__column-2-row-1">
-                            <h1 data-testid="card-details__title" className="card-details__title">
+                            <h2 data-testid="card-details__title" className="card-details__title">
                                 {this.state.card_details ? this.state.card_details.Title : null}
-                            </h1>
+                            </h2>
                         </Row>
                         <Row data-testid="card-details__column-2-row2" className="card-details__column-2-row-2">
                             <Button data-testid="card-details__button" className="card-details__button">Buy Me!</Button>

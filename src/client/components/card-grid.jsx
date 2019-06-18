@@ -58,7 +58,6 @@ class CardGrid extends Component {
       });
     } else if (this.state.searchButtonActive) {
       //show all cards again.
-      debugger;
       this.setState({
         cards: this.state.allCards,
         searchButtonActive: false,

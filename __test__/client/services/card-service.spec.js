@@ -146,21 +146,22 @@ describe('Card Service', () => {
     describe('When the filterCards method is invoked', () => {
         beforeEach(() => {
             mockAxios = {
-                get: mockAxiosGetCardDetails,
+                get: mockAxiosGetCards,
             }
             newCardService = new CardService(mockAxios);
         });
 
-        // it('Returns a list of filtered cards based on title and search input', async () => {
-        //     const filteredCards =
-        //         await newCardService.filterCards(
-        //             'Father'
-        //         );
-        //     expect(
-        //         filteredCards.length
-        //     ).toBe(
-        //         1
-        //     )
-        // });
+        it('Returns a list of filtered cards based on title and search input', async () => {
+            await newCardService.getCards();
+            const filteredCards =
+                await newCardService.filterCards(
+                    'Father'
+                );
+            expect(
+                filteredCards.length
+            ).toBe(
+                14
+            )
+        });
     });
 });

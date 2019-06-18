@@ -1,8 +1,9 @@
 export default class CardService {
     constructor(axios) {
         this.axios = axios;
-        this.favouriteRecipes = undefined;
         this.getCards = this.getCards.bind(this);
+        this.filterCards = this.filterCards.bind(this);
+        this.getCardDetails = this.getCardDetails.bind(this);
     }
 
     getCards() {
@@ -33,6 +34,22 @@ export default class CardService {
                 console.error(getCardDetailsError.message);
                 throw getCardDetailsError;
             });
+    }
 
+    filterCards(filterTerm) {
+        let matchingCards = [];
+
+        filterTerm = filterTerm.toLowerCase();
+
+        const cardsToFilter = this.cachedCards;
+        if (cardsToFilter) {
+            cardsToFilter.forEach((currentCard, index, cards) => {
+                if (currentCard.Title.toLowerCase().indexOf(filterTerm) > -1) {
+                    matchingCards.push(currentCard);
+                }
+            });
+        }
+
+        return matchingCards;
     }
 }

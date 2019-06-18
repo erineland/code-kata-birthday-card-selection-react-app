@@ -16,7 +16,6 @@ class CardDetails extends Component {
         const productId = this.state.product_id;
         this.props.cardService.getCardDetails(productId)
             .then(cardDetails => {
-                debugger;
                 this.setState({
                     card_details: cardDetails,
                 });

@@ -96,7 +96,7 @@ class CardGrid extends Component {
         <br />
         {cardList ?
           cardList.length > 0 ?
-            <Row data-testid="card-grid__card-grid-row" className="card-grid__card-grid-row">
+            <div data-testid="card-grid__card-grid-row" className="card-grid__card-grid-row">
               {
                 this.state.cards.map((currentCard, index) => {
                   return (
@@ -107,7 +107,7 @@ class CardGrid extends Component {
                     </Card>)
                 })
               }
-            </Row>
+            </div>
             :
             <Alert
               data-testid="card-grid__no-results-warning"

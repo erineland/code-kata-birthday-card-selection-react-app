@@ -18,6 +18,6 @@ Can be easily uploaded to Azure, Google Cloud or AWS and run 'out of the box'.
 Tested for accessibility issues using Wave Google Chrome extension.
 
 Future Improvements:
-- More comoprehensive testing.
+- More comprehensive testing.
 - Integration testing of routes.
 - Cypress for end to end testing.

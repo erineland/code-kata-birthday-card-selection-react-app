@@ -1,4 +1,4 @@
-# ***REMOVED*** ***REMOVED*** - Card Shop Coding Exercise
+# Erin Eland - Card Shop Coding Exercise
 
 Hosted solution on Google Cloud: https://react-express-card-sample-site.appspot.com
 
